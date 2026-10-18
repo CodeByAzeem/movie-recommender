@@ -1,16 +1,17 @@
 
 # 🎬 Movie Recommender System
 
-A content-based Movie Recommender System built using Python and Streamlit. The application recommends movies similar to a movie selected by the user and displays movie posters using The Movie Database (TMDB) API.
+A content-based Movie Recommender System built using Python and Streamlit. It recommends five movies similar to a user-selected movie and displays clickable movie posters fetched from The Movie Database (TMDB) API.
 
 ## 🚀 Features
 
-- 🎥 **Movie Recommendations:** Recommends 5 similar movies based on the selected movie.
-- 🔍 **Movie Selection:** Search and select movies from a dropdown menu.
+- 🎥 **Movie Recommendations:** Recommends five similar movies based on the selected movie.
+- 🔍 **Movie Selection:** Select a movie from an interactive dropdown menu.
 - 🖼️ **Movie Posters:** Fetches movie posters using the TMDB API.
-- 🔗 **Clickable Posters:** Click on a movie poster to open its TMDB page.
+- 🔗 **Clickable Posters:** Click a poster to open the movie's TMDB page.
 - ⚡ **Fast Recommendations:** Uses precomputed similarity scores for efficient recommendations.
-- 🌐 **Interactive Web App:** Built with Streamlit for a simple and user-friendly interface.
+- 🎨 **Custom UI:** Dark-themed interface with red accents and styled movie titles.
+- 🌐 **Interactive Web App:** Simple and user-friendly interface built with Streamlit.
 
 ## 🛠️ Technologies Used
 
@@ -28,24 +29,25 @@ A content-based Movie Recommender System built using Python and Streamlit. The a
 ```text
 movie-recommender/
 │
-├── app.py                 # Streamlit application
-├── movies.pkl             # Processed movie dataset
-├── similarity.pkl         # Precomputed similarity matrix
-├── requirements.txt       # Project dependencies
-├── .gitignore             # Files excluded from Git
-└── README.md              # Project documentation
+├── app.py                  # Streamlit application
+├── models/
+│   ├── movies.pkl          # Processed movie dataset
+│   └── similarity.pkl      # Precomputed similarity matrix
+├── requirements.txt        # Project dependencies
+├── .gitignore              # Files excluded from Git
+└── README.md               # Project documentation
 ```
 
 ## ⚙️ How It Works
 
-This project uses content-based filtering to recommend movies.
+This project uses **content-based filtering** to recommend movies based on similarity.
 
 1. **Data Collection:** Movie information is collected from a movie dataset.
-2. **Data Preprocessing:** Relevant movie information is cleaned and transformed into features.
+2. **Data Preprocessing:** Relevant movie information is cleaned and prepared.
 3. **Feature Extraction:** Movie features are converted into numerical representations.
-4. **Similarity Calculation:** Cosine similarity is used to calculate similarity scores between movies.
+4. **Similarity Calculation:** Cosine similarity is used to measure similarity between movies.
 5. **Recommendation:** When a user selects a movie, the system retrieves its similarity scores and recommends the five most similar movies.
-6. **Poster Fetching:** The TMDB API retrieves movie posters for the recommended movies.
+6. **Poster Fetching:** The TMDB API retrieves posters for the recommended movies.
 
 ## 📥 Installation and Setup
 
@@ -81,19 +83,21 @@ pip install -r requirements.txt
 
 ### 5. Configure the TMDB API Key
 
-Create an API key through [The Movie Database (TMDB)](https://www.themoviedb.org/).
+Get an API key from [The Movie Database (TMDB)](https://www.themoviedb.org/).
 
-For example, create `.streamlit/secrets.toml`:
+Create a file named `.streamlit/secrets.toml` in your project directory:
 
 ```toml
 TMDB_API_KEY = "your_api_key_here"
 ```
 
-Access it in Streamlit using:
+The application accesses the key using Streamlit secrets:
 
 ```python
-api_key = st.secrets["TMDB_API_KEY"]
+st.secrets["TMDB_API_KEY"]
 ```
+
+**Important:** Never commit your actual API key to GitHub. Add `.streamlit/secrets.toml` to your `.gitignore` file.
 
 ### 6. Run the Application
 
@@ -107,8 +111,8 @@ The application will open in your browser.
 
 **Azeem Ahmad**
 
-- GitHub: https://github.com/CodeByAzeem
+- GitHub: [CodeByAzeem](https://github.com/CodeByAzeem)
 
 ## 📄 License
 
-This project is intended for educational and portfolio purposes. Review the licenses and terms of use of the datasets and APIs used before redistributing them.
+This project is intended for educational and portfolio purposes. Please review the licenses and terms of use for the datasets and APIs used before redistributing them.
